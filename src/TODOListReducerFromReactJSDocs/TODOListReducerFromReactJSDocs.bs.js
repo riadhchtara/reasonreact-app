@@ -1,6 +1,7 @@
 'use strict';
 
 var List = require("bs-platform/lib/js/list.js");
+var $$Array = require("bs-platform/lib/js/array.js");
 var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("react");
 
@@ -38,7 +39,9 @@ function TODOListReducerFromReactJSDocs(Props) {
   var dispatch = match[1];
   return React.createElement("div", {
               style: containerStyle
-            }, React.createElement("div", undefined, "Count: "), React.createElement("div", undefined, React.createElement("button", {
+            }, React.createElement("div", undefined, React.createElement("div", undefined, $$Array.of_list(List.map((function (x) {
+                                return React.createElement("div", undefined, x);
+                              }), match[0].todolist)))), React.createElement("div", undefined, React.createElement("button", {
                       style: rightButtonStyle,
                       onClick: (function (_event) {
                           return Curry._1(dispatch, /* AddToDoItem */{
