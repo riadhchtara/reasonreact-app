@@ -7,6 +7,7 @@ var BlinkingGreeting$MyReactApp = require("./BlinkingGreeting/BlinkingGreeting.b
 var FetchedDogPictures$MyReactApp = require("./FetchedDogPictures/FetchedDogPictures.bs.js");
 var ReducerFromReactJSDocs$MyReactApp = require("./ReducerFromReactJSDocs/ReducerFromReactJSDocs.bs.js");
 var ReasonUsingJSUsingReason$MyReactApp = require("./ReasonUsingJSUsingReason/ReasonUsingJSUsingReason.bs.js");
+var TODOListReducerFromReactJSDocs$MyReactApp = require("./TODOListReducerFromReactJSDocs/TODOListReducerFromReactJSDocs.bs.js");
 
 var style = document.createElement("style");
 
@@ -33,6 +34,8 @@ ReactDom.render(React.createElement(BlinkingGreeting$MyReactApp.make, {
         }), makeContainer("Blinking Greeting"));
 
 ReactDom.render(React.createElement(ReducerFromReactJSDocs$MyReactApp.make, {}), makeContainer("Reducer From ReactJS Docs"));
+
+ReactDom.render(React.createElement(TODOListReducerFromReactJSDocs$MyReactApp.make, {}), makeContainer("TODOLIST"));
 
 ReactDom.render(React.createElement(FetchedDogPictures$MyReactApp.make, {}), makeContainer("Fetched Dog Pictures"));
 

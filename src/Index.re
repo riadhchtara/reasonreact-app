@@ -21,8 +21,8 @@ let makeContainer = text => {
   content##className #= "containerContent";
 
   let () = container##appendChild(title);
-  let () = container##appendChild(content);
-  let () = document##body##appendChild(container);
+   let () = container##appendChild(content);
+   let () = document##body##appendChild(container);
 
   content;
 };
@@ -39,6 +39,12 @@ ReactDOMRe.render(
   <ReducerFromReactJSDocs />,
   makeContainer("Reducer From ReactJS Docs"),
 );
+
+ReactDOMRe.render(
+  <TODOListReducerFromReactJSDocs />,
+  makeContainer("TODOLIST"),
+);
+
 
 ReactDOMRe.render(
   <FetchedDogPictures />,
