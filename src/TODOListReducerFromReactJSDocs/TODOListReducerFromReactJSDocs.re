@@ -19,7 +19,7 @@ let reducer = (state, action) => {
   | AddToDoItem(item) => {todolist:List.append (state.todolist, [item ] )}
 
 } ;
-0  
+  
 };
 
 [@react.component]
