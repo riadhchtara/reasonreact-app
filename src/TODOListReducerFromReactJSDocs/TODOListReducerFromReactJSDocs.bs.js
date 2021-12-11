@@ -1,5 +1,6 @@
 'use strict';
 
+var List = require("bs-platform/lib/js/list.js");
 var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("react");
 
@@ -20,19 +21,16 @@ var containerStyle = {
 };
 
 var initialState = {
-  count: 0
+  todolist: /* [] */0
 };
 
 function reducer(state, action) {
-  if (action) {
-    return {
-            count: state.count - 1 | 0
-          };
-  } else {
-    return {
-            count: state.count + 1 | 0
-          };
-  }
+  return {
+          todolist: List.append(state.todolist, {
+                hd: action._0,
+                tl: /* [] */0
+              })
+        };
 }
 
 function TODOListReducerFromReactJSDocs(Props) {
@@ -40,15 +38,12 @@ function TODOListReducerFromReactJSDocs(Props) {
   var dispatch = match[1];
   return React.createElement("div", {
               style: containerStyle
-            }, React.createElement("div", undefined, "Count: ", String(match[0].count)), React.createElement("div", undefined, React.createElement("button", {
-                      style: leftButtonStyle,
-                      onClick: (function (_event) {
-                          return Curry._1(dispatch, /* Decrement */1);
-                        })
-                    }, "-"), React.createElement("button", {
+            }, React.createElement("div", undefined, "Count: "), React.createElement("div", undefined, React.createElement("button", {
                       style: rightButtonStyle,
                       onClick: (function (_event) {
-                          return Curry._1(dispatch, /* Increment */0);
+                          return Curry._1(dispatch, /* AddToDoItem */{
+                                      _0: ""
+                                    });
                         })
                     }, "+")));
 }

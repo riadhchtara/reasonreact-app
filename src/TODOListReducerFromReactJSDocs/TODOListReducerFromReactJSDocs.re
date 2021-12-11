@@ -7,19 +7,19 @@ let rightButtonStyle = ReactDOMRe.Style.make(~borderRadius="0px 4px 4px 0px", ~w
 let containerStyle = ReactDOMRe.Style.make(~display="flex", ~alignItems="center", ~justifyContent="space-between", ());
 
 // Record and variant need explicit declarations.
-type state = {count: int};
+type state = { todolist: list(string)};
 
 type action =
-  | Increment
-  | Decrement;
-
-let initialState = {count: 0};
-
+  |AddToDoItem(string);
+ 
+let initialState = { todolist: []
+};
 let reducer = (state, action) => {
   switch (action) {
-  | Increment => {count: state.count + 1}
-  | Decrement => {count: state.count - 1}
-  };
+  | AddToDoItem(item) => {todolist:List.append (state.todolist, [item ] )}
+
+} ;
+0  
 };
 
 [@react.component]
@@ -29,14 +29,12 @@ let make = () => {
   // We can use a fragment here, but we don't, because we want to style the counter
   <div style=containerStyle>
     <div>
-      {React.string("Count: ")}
-      {React.string(string_of_int(state.count))}
-    </div>
+      {React.string("Count: ")}    </div>
     <div>
-      <button style=leftButtonStyle onClick={_event => dispatch(Decrement)}>
-        {React.string("-")}
-      </button>
-      <button style=rightButtonStyle onClick={_event => dispatch(Increment)}>
+
+      <button style=rightButtonStyle onClick={_event => dispatch(
+        AddToDoItem("")
+      )}>
         {React.string("+")}
       </button>
     </div>
