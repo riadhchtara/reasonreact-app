@@ -22,16 +22,25 @@ var containerStyle = {
 };
 
 var initialState = {
-  todolist: /* [] */0
+  todolist: /* [] */0,
+  item: ""
 };
 
 function reducer(state, action) {
-  return {
-          todolist: List.append(state.todolist, {
-                hd: action._0,
-                tl: /* [] */0
-              })
-        };
+  if (action.TAG === /* AddToDoItem */0) {
+    return {
+            todolist: List.append(state.todolist, {
+                  hd: action._0,
+                  tl: /* [] */0
+                }),
+            item: state.item
+          };
+  } else {
+    return {
+            todolist: state.todolist,
+            item: action._0
+          };
+  }
 }
 
 function TODOListReducerFromReactJSDocs(Props) {
@@ -44,8 +53,9 @@ function TODOListReducerFromReactJSDocs(Props) {
                               }), match[0].todolist)))), React.createElement("div", undefined, React.createElement("button", {
                       style: rightButtonStyle,
                       onClick: (function (_event) {
-                          return Curry._1(dispatch, /* AddToDoItem */{
-                                      _0: ""
+                          return Curry._1(dispatch, {
+                                      TAG: /* AddToDoItem */0,
+                                      _0: "mmm"
                                     });
                         })
                     }, "+")));

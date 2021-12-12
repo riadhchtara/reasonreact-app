@@ -15,15 +15,22 @@ let containerStyle =
   );
 
 // Record and variant need explicit declarations.
-type state = {todolist: list(string)};
+type state = {todolist: list(string), item:string};
+
+  
 
 type action =
-  | AddToDoItem(string);
+  | AddToDoItem(string)
 
-let initialState = {todolist: []};
+  |SetItem(string);
+
+
+let initialState = {todolist: [], item:""};
 let reducer = (state, action) => {
-  switch (action) {
-  | AddToDoItem(item) => {todolist: List.append(state.todolist, [item])}
+    switch (action) {
+  | AddToDoItem(i) => {todolist:List.append(state.todolist , [i]),  item:state.item
+  }
+  | SetItem(i) => {item : i, todolist:state.todolist}
   };
 };
 
@@ -42,7 +49,7 @@ let make = () => {
     </div>
     <div>
       <button
-        style=rightButtonStyle onClick={_event => dispatch(AddToDoItem(""))}>
+        style=rightButtonStyle onClick={_event => dispatch(AddToDoItem("mmm"))}>
         {React.string("+")}
       </button>
     </div>
