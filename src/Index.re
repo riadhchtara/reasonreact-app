@@ -48,7 +48,7 @@ ReactDOMRe.render(
 
 ReactDOMRe.render(
   <FetchedDogPictures />,
-  makeContainer("Fetched Dog Pictures"),
+  makeContainer("Fetched Dogsx Pictures"),
 );
 
 ReactDOMRe.render(

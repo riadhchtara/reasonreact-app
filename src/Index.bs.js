@@ -37,7 +37,7 @@ ReactDom.render(React.createElement(ReducerFromReactJSDocs$MyReactApp.make, {}),
 
 ReactDom.render(React.createElement(TODOListReducerFromReactJSDocs$MyReactApp.make, {}), makeContainer("TODOLIST"));
 
-ReactDom.render(React.createElement(FetchedDogPictures$MyReactApp.make, {}), makeContainer("Fetched Dog Pictures"));
+ReactDom.render(React.createElement(FetchedDogPictures$MyReactApp.make, {}), makeContainer("Fetched Dogsx Pictures"));
 
 ReactDom.render(React.createElement(ReasonUsingJSUsingReason$MyReactApp.make, {}), makeContainer("Reason Using JS Using Reason"));
 
