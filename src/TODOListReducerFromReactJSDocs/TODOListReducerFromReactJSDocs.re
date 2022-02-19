@@ -22,8 +22,8 @@ type state = {
 
 type action =
   | AddToDoItem(string)
-  | SetItem(string);
-
+  | SetItem(string)
+  | DeleteItem(int);
 let initialState = {todolist: [], item: ""};
 let reducer = (state, action) => {
   switch (action) {
@@ -32,6 +32,20 @@ let reducer = (state, action) => {
       item: state.item,
     }
   | SetItem(i) => {item: i, todolist: state.todolist}
+  | DeleteItem(i) => {
+      todolist: {
+        Js.log(i);
+        ArrayLabels.to_list(
+          Js.Array.spliceInPlace(
+            ~pos=i + 1,
+            ~remove=1,
+            ~add=[||],
+            ArrayLabels.of_list(state.todolist),
+          ),
+        );
+      },
+      item: state.item,
+    }
   };
 };
 
@@ -43,7 +57,19 @@ let make = () => {
   <div style=containerStyle>
     <div>
       <div>
-        {List.map(x => {<div> {React.string(x)} </div>}, state.todolist)
+        {List.mapi(
+           (i, x) => {
+             <div key={Pervasives.string_of_int(i)}>
+               {React.string(x)}
+               <button
+                 style=rightButtonStyle
+                 onClick={_event => dispatch(DeleteItem(i))}>
+                 {React.string("-")}
+               </button>
+             </div>
+           },
+           state.todolist,
+         )
          ->Array.of_list
          ->ReasonReact.array}
       </div>
