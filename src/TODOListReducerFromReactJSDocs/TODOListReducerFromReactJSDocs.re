@@ -4,6 +4,8 @@
 // A little extra we've put, because the ReactJS example has no styling
 let leftButtonStyle =
   ReactDOMRe.Style.make(~borderRadius="4px 0px 0px 4px", ~width="48px", ());
+let centerButtonStyle =
+  ReactDOMRe.Style.make(~borderRadius="4px 4px 4px 4px", ~width="48px", ());
 let rightButtonStyle =
   ReactDOMRe.Style.make(~borderRadius="0px 4px 4px 0px", ~width="48px", ());
 let containerStyle =
@@ -62,7 +64,7 @@ let make = () => {
              <div key={Pervasives.string_of_int(i)}>
                {React.string(x)}
                <button
-                 style=rightButtonStyle
+                 style=centerButtonStyle
                  onClick={_event => dispatch(DeleteItem(i))}>
                  {React.string("-")}
                </button>

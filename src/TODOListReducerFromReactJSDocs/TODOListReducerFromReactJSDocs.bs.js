@@ -11,6 +11,11 @@ var leftButtonStyle = {
   borderRadius: "4px 0px 0px 4px"
 };
 
+var centerButtonStyle = {
+  width: "48px",
+  borderRadius: "4px 4px 4px 4px"
+};
+
 var rightButtonStyle = {
   width: "48px",
   borderRadius: "0px 4px 4px 0px"
@@ -62,7 +67,7 @@ function TODOListReducerFromReactJSDocs(Props) {
                                 return React.createElement("div", {
                                             key: String(i)
                                           }, x, React.createElement("button", {
-                                                style: rightButtonStyle,
+                                                style: centerButtonStyle,
                                                 onClick: (function (_event) {
                                                     return Curry._1(dispatch, {
                                                                 TAG: /* DeleteItem */2,
@@ -93,6 +98,7 @@ function TODOListReducerFromReactJSDocs(Props) {
 var make = TODOListReducerFromReactJSDocs;
 
 exports.leftButtonStyle = leftButtonStyle;
+exports.centerButtonStyle = centerButtonStyle;
 exports.rightButtonStyle = rightButtonStyle;
 exports.containerStyle = containerStyle;
 exports.initialState = initialState;
