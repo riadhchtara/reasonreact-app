@@ -30,12 +30,16 @@ function makeContainer(text) {
 }
 
 ReactDom.render(React.createElement(BlinkingGreeting$MyReactApp.make, {
+          children: "ss"
+        }), makeContainer("w"));
+
+ReactDom.render(React.createElement(BlinkingGreeting$MyReactApp.make, {
           children: "Hello!"
         }), makeContainer("Blinking Greeting"));
 
 ReactDom.render(React.createElement(ReducerFromReactJSDocs$MyReactApp.make, {}), makeContainer("Reducer From ReactJS Docs"));
 
-ReactDom.render(React.createElement(TODOListReducerFromReactJSDocs$MyReactApp.make, {}), makeContainer("TODOLIST"));
+ReactDom.render(React.createElement(TODOListReducerFromReactJSDocs$MyReactApp.make, {}), makeContainer("TODO List"));
 
 ReactDom.render(React.createElement(FetchedDogPictures$MyReactApp.make, {}), makeContainer("Fetched Dogsx Pictures"));
 

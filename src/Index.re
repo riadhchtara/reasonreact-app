@@ -21,17 +21,20 @@ let makeContainer = text => {
   content##className #= "containerContent";
 
   let () = container##appendChild(title);
-   let () = container##appendChild(content);
-   let () = document##body##appendChild(container);
+  let () = container##appendChild(content);
+  let () = document##body##appendChild(container);
 
   content;
 };
 
-// All 4 examples.
+// All 4 examples.+
 ReactDOMRe.render(
-  <BlinkingGreeting>
-    {React.string("Hello!")}
-  </BlinkingGreeting>,
+  <BlinkingGreeting> {React.string("ss")} </BlinkingGreeting>,
+  makeContainer("w"),
+);
+
+ReactDOMRe.render(
+  <BlinkingGreeting> {React.string("Hello!")} </BlinkingGreeting>,
   makeContainer("Blinking Greeting"),
 );
 
@@ -42,9 +45,8 @@ ReactDOMRe.render(
 
 ReactDOMRe.render(
   <TODOListReducerFromReactJSDocs />,
-  makeContainer("TODOLIST"),
+  makeContainer("TODO List"),
 );
-
 
 ReactDOMRe.render(
   <FetchedDogPictures />,
